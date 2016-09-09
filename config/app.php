@@ -9,7 +9,7 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    'debug' => false,
+    'debug' => true,
 
     /**
      * Configure basic information about the application.
@@ -212,16 +212,16 @@ return [
             'className' => 'Cake\Database\Connection',
             'driver' => 'Cake\Database\Driver\Mysql',
             'persistent' => false,
-            'host' => '',
+            'host' => env('HOST'),
             /**
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
              * the following line and set the port accordingly
              */
             //'port' => '',
-            'username' => 'root',
-            'password' => '',
-            'database' => 'guiabackend',
+            'username' => env('USERNAME'),
+            'password' => env('PASSWORD'),
+            'database' => env('DATABASE'),
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
@@ -255,27 +255,15 @@ return [
             'persistent' => false,
             'host' => 'localhost',
             //'port' => 'nonstandard_port_number',
-            'username' => 'root',
+            'username' => '',
             'password' => '',
-            'database' => 'guiabackend',
+            'database' => '',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
         ],
-
-        /*
-        public function __construct() {
-            $datasource = 'Database/'.ucfirst(getenv('DATABASE_ENGINE'));
-            $this->default['host']       = getenv(strtoupper(getenv("DATABASE_SERVICE_NAME"))."_SERVICE_HOST");
-            $this->default['port']       = getenv(strtoupper(getenv("DATABASE_SERVICE_NAME"))."_SERVICE_PORT");
-            $this->default['login']      = getenv("DATABASE_USER");
-            $this->default['password']   = getenv("DATABASE_PASSWORD");
-            $this->default['database']   = getenv("DATABASE_NAME");
-            $this->default['datasource'] = $datasource;
-            $this->test['datasource']    = $datasource;
-        }
     ],
 
     /**
